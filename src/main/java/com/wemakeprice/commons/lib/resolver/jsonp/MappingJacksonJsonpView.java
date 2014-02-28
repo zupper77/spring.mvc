@@ -18,7 +18,7 @@ public class MappingJacksonJsonpView extends MappingJacksonJsonView {
 
 	@Override
 	public String getContentType() {
-		return DEFAULT_CONTENT_TYPE;
+		return DEFAULT_CONTENT_TYPE;  
 	}
 
 	@Override
