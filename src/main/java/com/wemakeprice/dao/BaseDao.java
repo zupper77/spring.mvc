@@ -2,13 +2,12 @@ package com.wemakeprice.dao;
 
 import java.util.List;
 
-import org.mybatis.spring.support.SqlSessionDaoSupport;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.support.DaoSupport;
-import org.springframework.stereotype.Repository;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DaoSupport;
+import org.springframework.stereotype.Repository;
 
 /**  
  * @Description SQLID로 sql 실행하기 위한 DAO
