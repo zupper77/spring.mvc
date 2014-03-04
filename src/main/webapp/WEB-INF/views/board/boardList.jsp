@@ -14,7 +14,13 @@
 <body>
 
 <div>
-<h3><font color="green">:::게시판:::</font></h3>
+<h3><font color="green">:::@ModelAttribute:::</font></h3>
+해당 모델 객체들을 세션에 저장하여 여러 요청에서 공통으로 사용<br/>
+${searchTeamList[0]}<br/>
+${searchTeamList[1]}<br/>
+${searchTeamList[2]}<br/><br/>
+
+<h3><font color="green">:::Board:::</font></h3>
 #Total count: <%=boardList.size() %>
 <table border="1" width="700px">
 <tr>
@@ -30,7 +36,10 @@
 <tr>
 	<td><a href="<%=root %>/board/editBoard.do">edit</a></td>
 	<td><%=boardVO.getId() %></td>
-	<td width="200px"><a href="<%=root %>/board/getBoardInfo.do?id=<%=boardVO.getId() %>"><%=boardVO.getTitle()%></a></td>
+	<td width="200px">
+		<%=boardVO.getTitle()%><a href="<%=root %>/board/getBoardInfo.do?id=<%=boardVO.getId() %>"> *.do 호출</a><br/>
+		<%=boardVO.getTitle()%><a href="<%=root %>/board/getBoardInfo.json?id=<%=boardVO.getId() %>"> *.json 호출</a>
+	</td>
 	<td><%=boardVO.getWriter() %></td>	
 	<td>
 		@삭제(type parameter 미지정)&nbsp;&nbsp;<a href="<%=root %>/board/removeBoard.do?id=<%=boardVO.getId() %>">del</a><br/>
@@ -41,6 +50,7 @@
 <% } %>
 </table>
 <br/>
+<a href="<%=root %>/board/dummy.do">dummy</a>
 <a href="<%=root %>/board/addBoard.do">write</a>
 </div>
 </body>
