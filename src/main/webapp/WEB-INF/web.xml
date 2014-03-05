@@ -26,16 +26,13 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	 
+	<!--  
  	<servlet-mapping>
 	   <servlet-name>appServlet</servlet-name>
 	   <url-pattern>/</url-pattern>
   	</servlet-mapping>
-	 
-<<<<<<< HEAD
-	<!--
-=======
-	   
->>>>>>> 69319b6965c6753c9b9477b756c130438cea38a4
+	 -->
+
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
