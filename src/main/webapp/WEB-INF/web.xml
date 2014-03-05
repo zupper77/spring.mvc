@@ -18,7 +18,7 @@
 
 	<servlet>
 	   	<servlet-name>appServlet</servlet-name>
-	   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
 	   	<init-param>
 	     	<param-name>contextConfigLocation</param-name>
 	     	<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
@@ -31,7 +31,11 @@
 	   <url-pattern>/</url-pattern>
   	</servlet-mapping>
 	 
+<<<<<<< HEAD
 	<!--
+=======
+	   
+>>>>>>> 69319b6965c6753c9b9477b756c130438cea38a4
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -40,8 +44,8 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>	
-	-->		
-  
+	
+       
   	<filter>
 	    <filter-name>encodingFilter</filter-name>
 	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
