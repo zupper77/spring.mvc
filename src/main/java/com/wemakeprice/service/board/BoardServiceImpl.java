@@ -1,5 +1,6 @@
 package com.wemakeprice.service.board;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,37 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int editBoardInfo(BoardVO boardVO) {
 		return boardDao.updateBoard(boardVO);
+	}
+
+	@Override
+	public void txTransactionTest() throws Exception {
+		BoardVO boardVO = new BoardVO();
+		for(int i = 0; i < 10; i++){
+			boardVO.setTitle("Transaction1-"+i+1);
+			boardVO.setWriter("김한주");
+			
+			if(i == 5){
+				//throw new Exception("트랜잭션테스트");
+			}
+			boardDao.transactionTest(boardVO);
+		}
+		
+		for(int i = 0; i < 10; i++){
+			boardVO.setTitle("Transaction2-"+i+1);
+			boardVO.setWriter("김한주");
+			if(i == 5){
+				//throw new Exception("트랜잭션테스트");
+			}
+			boardDao.transactionTest(boardVO);
+		}
+		
+		for(int i = 0; i < 10; i++){
+			boardVO.setTitle("Transaction3-"+i+1);
+			boardVO.setWriter("김한주");
+			if(i == 5){
+				throw new Exception("트랜잭션테스트");
+			}
+			boardDao.transactionTest(boardVO);
+		}		
 	}
 }

@@ -1,0 +1,1 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><div id="wrap_footer">	<div class="wrap_center">		<p class="footer_copyright">COPYRIGHT@WEMAKEPRICE INC. ALL RIGHTS RESERVED.</p>	</div></div>

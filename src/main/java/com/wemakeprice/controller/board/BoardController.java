@@ -1,6 +1,7 @@
 package com.wemakeprice.controller.board;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -126,7 +127,7 @@ public class BoardController extends BaseController{
 	public void removeBoard_1(BoardVO boardVO, HttpServletRequest request, HttpServletResponse response) throws IOException{
 		log.debug("기본으로 삭제합니다.");
 		log.debug("삭제할 아이디: "+ request.getParameter("id"));
-		log.debug("resultCode: "+ boardService.removeBoardInfo(boardVO));
+		//log.debug("resultCode: "+ boardService.removeBoardInfo(boardVO));
 		response.sendRedirect(request.getContextPath()+"/board/getBoardList.do");
 	}
 	
@@ -158,5 +159,23 @@ public class BoardController extends BaseController{
 		//log.debug("resultCode: "+ boardService.removeBoardInfo(boardVO));
 		response.sendRedirect(request.getContextPath()+"/board/getBoardList.do");
 	}
+	
+	
+    /**
+     * Transaction Test
+     * @param model
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/transactionTest")
+    public void getTransactionTest(Model model, HttpServletRequest request, HttpServletResponse response){
+    	try {
+	    	boardService.txTransactionTest();
+    	} catch(Exception e) {
+            log.error("ProductListController.txTransactionTest() Error : ", e);
+    	}
+    	
+    }
+    
 	
 }

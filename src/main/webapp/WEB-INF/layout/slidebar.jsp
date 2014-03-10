@@ -1,0 +1,1 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><div id="wrap_rightfloat">	<div class="rightfloat_banner">		<a><img src="http://image.wemakeprice.com/images/2013/temp/100244.jpg"></a>		<a><img src="http://image.wemakeprice.com/images/2013/temp/100244.jpg"></a>	</div></div>

@@ -27,7 +27,7 @@
         <property name="username" value="wmpstudy"></property>
         <property name="password" value="wmp1234"></property>
          -->
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/wmp_study?characterEncoding=UTF-8"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/wmp_study?characterEncoding=UTF-8"></property>
         <property name="username" value="root"></property>
         <property name="password" value="2322"></property>         
     </bean>	
@@ -40,13 +40,14 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true"/>
-			<tx:method name="*" propagation="REQUIRES_NEW"/>
+			<tx:method name="tx*" propagation="REQUIRES_NEW" rollback-for="Exception" />
+			<tx:method name="*" propagation="SUPPORTS"/>
 		</tx:attributes>
 	</tx:advice>
 	
 	<aop:config>
-		<aop:advisor pointcut="execution(public * com.wemakeprice.service.**.**.*Impl(..))" advice-ref="txAdvice"/>
+		<aop:advisor pointcut="execution(public * com.wemakeprice.service.**.*Impl.*(..))" advice-ref="txAdvice"/>
 	</aop:config>	
-	    			
+
     		
 </beans>						

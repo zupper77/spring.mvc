@@ -15,5 +15,6 @@ public interface BoardDao {
 	int deleteBoard(BoardVO boardVO);
 	
 	int updateBoard(BoardVO boardVO);
-
+	
+	void transactionTest(BoardVO boardVO) throws Exception;
 }

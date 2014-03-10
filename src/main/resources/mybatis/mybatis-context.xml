@@ -11,16 +11,18 @@
         <!--매퍼에 관련된 자원의 위치를 나열한다. 이 프로퍼티는 마이바티스의 XML매퍼 파일들의 위치를 지정하기 위해 사용될 수 있다. 
         	디렉터리 아래 모든 파일을 로드하기 위해 앤트(Ant) 스타일의 패턴을 사용할수도 있고 
         	가장 상위 위치를 지정하는 것으로 재귀적으로 하위 경로를 찾도록 할수도 있다. -->        
-        <property name="mapperLocations" value="classpath:mybatis/sql/*-mapper.xml" />
+        <property name="mapperLocations" value="classpath:mybatis/sql/board-mapper.xml" />
     </bean>
 
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg ref="sqlSessionFactory"/>
     </bean>
     
+    <!-- 
     <bean id="baseDao" class="com.wemakeprice.dao.BaseDao">
     	<property name="sqlSessionTemplate" ref="sqlSessionTemplate" /> 
-    </bean>	
+    </bean>
+     -->	
      
 	<!-- mybatis mapper auto scanning 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

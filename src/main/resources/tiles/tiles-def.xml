@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+<tiles-definitions>
+	 <definition name=".default" template="/WEB-INF/layout/main.jsp">
+		  <put-attribute name="title" value="wemakeprice" type="string" />
+		  <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+		  <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+		  <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp" />
+		  <put-attribute name="body" value="" />
+	 </definition>
+	 
+	 <definition name=".popup" template="/WEB-INF/layout/popup.jsp">
+		  <put-attribute name="body" value="/WEB-INF/layout/blank.jsp" />
+	 </definition>
+	 
+	  <definition name=".dashBoard" template="/WEB-INF/layout/dashboard.jsp">
+		  <put-attribute name="title" value="wemakeprice" type="string" />
+		  <put-attribute name="header" value="/WEB-INF/layout/header.jsp" />
+		  <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+		  <put-attribute name="menu" value="/WEB-INF/layout/menu.jsp" />
+		  <put-attribute name="body" value="" />
+		  <put-attribute name="advertising" value="/WEB-INF/layout/advertising.jsp" />
+		  <put-attribute name="slidebar" value="/WEB-INF/layout/slidebar.jsp" />
+	 </definition>
+	 
+	<definition name=".blank" template="/WEB-INF/layout/blank.jsp">
+		  <put-attribute name="body" value="" />
+	 </definition>
+	 
+</tiles-definitions>

@@ -15,4 +15,6 @@ public interface BoardService {
 	int removeBoardInfo(BoardVO boardVO);
 	
 	int editBoardInfo(BoardVO boardVO);
+
+	void txTransactionTest() throws Exception ;
 }

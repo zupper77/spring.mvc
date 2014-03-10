@@ -2,35 +2,45 @@ package com.wemakeprice.dao.board;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.wemakeprice.dao.BaseDao;
 import com.wemakeprice.vo.board.BoardVO;
 
 @Repository
-public class BoardDaoImpl extends BaseDao implements BoardDao{
+public class BoardDaoImpl implements BoardDao{
+	
+	@Autowired
+	SqlSession sqlSession;
+	
 	@Override
 	public List<BoardVO> selectBoardList(BoardVO boardVO) {
-		return super.selectList("board.selectBoardList", boardVO);
+		return sqlSession.selectList("board.selectBoardList", boardVO);
 	}
 
 	@Override
 	public BoardVO selectBoardInfo(BoardVO boardVO) {
-		return (BoardVO) super.selectOne("board.selectBoardInfo", boardVO);
+		return (BoardVO) sqlSession.selectOne("board.selectBoardInfo", boardVO);
 	}
 
 	@Override
 	public int insertBoard(BoardVO boardVO) {
-		return super.insert("board.insertBoard", boardVO);
+		return sqlSession.insert("board.insertBoard", boardVO);
 	}
 
 	@Override
 	public int deleteBoard(BoardVO boardVO) {
-		return super.delete("board.deleteBoard", boardVO);
+		return sqlSession.delete("board.deleteBoard", boardVO);
 	}
 
 	@Override
 	public int updateBoard(BoardVO boardVO) {
-		return super.update("board.updateBoard", boardVO);
+		return sqlSession.update("board.updateBoard", boardVO);
+	}
+
+	@Override
+	public void transactionTest(BoardVO boardVO) throws Exception {
+		sqlSession.insert("board.insertBoard", boardVO);		
 	}  
 }
