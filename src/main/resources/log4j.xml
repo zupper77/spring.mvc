@@ -10,6 +10,7 @@
 		</layout>
 	</appender>
 	
+	<!-- 
     <appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="file" value="/Users/zupper/logs/SpringMVC_framework.log"/>
         <param name="Append" value="true"/>
@@ -18,7 +19,9 @@
             <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n" />
         </layout>
     </appender>	
-    
+     -->
+     
+     
 	<logger name="com.wemakeprice.controller">
 		<level value="debug" />
 	</logger>
@@ -49,7 +52,9 @@
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
+		<!-- 
 		<appender-ref ref="file" />
+		 -->
 	</root>
 	
 </log4j:configuration>

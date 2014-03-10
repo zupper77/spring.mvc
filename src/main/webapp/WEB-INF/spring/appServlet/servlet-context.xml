@@ -38,7 +38,10 @@
     <!-- xmlView -->
     <beans:bean id="xmlViewer" class="com.wemakeprice.commons.lib.resolver.xml.MappingXmlView">
     </beans:bean>   
-
+	
+	<!-- 마샬링 뷰 설정 -->
+	<beans:bean id="marshaller" class="org.springframework.oxm.castor.CastorMarshaller" />
+	
     <!-- Resolver 1st -->
     <beans:bean id="bnViewResolver"  class="org.springframework.web.servlet.view.BeanNameViewResolver">
         <beans:property name="order" value="1" />
@@ -58,9 +61,11 @@
         <beans:property name="mediaTypes">
             <!-- 맵핑될 확장자 정의 -->
             <beans:map>
+            	
                 <beans:entry key="json"    value="application/json" /> 
                 <beans:entry key="jsonp"  value="application/javascript" />
                 <beans:entry key="xml"    value="application/xml" />
+                
             </beans:map>
         </beans:property>
         
@@ -79,11 +84,20 @@
                 </beans:bean>
                 
                 <!-- XML 요청을 처리할 뷰 -->
+                <!-- 
                 <beans:bean class="com.wemakeprice.commons.lib.resolver.xml.MappingXmlView">
                     <beans:property name="contentType" value="application/xml" />
                 </beans:bean>
-                
-                
+                 -->
+                 
+                <!-- 마샬링뷰 처리할 뷰  -->
+               	<beans:bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+               		<beans:property name="contentType" value="application/xml"></beans:property>
+               		<beans:property name="marshaller" ref="marshaller"></beans:property>
+               		<!-- <beans:property name="modelKey" value="*-info"></beans:property>  -->
+               	</beans:bean>
+               	
+               	
             </beans:list>
         </beans:property>
         
