@@ -50,6 +50,9 @@ public class BoardController extends BaseController{
 		return "board/boardList";
 	}
 	
+	
+	
+	
 	/**
 	 * ModelAndView 를 반환할 경우, Object를 명시적으로 담아서 매핑.
 	 * @param boardVO

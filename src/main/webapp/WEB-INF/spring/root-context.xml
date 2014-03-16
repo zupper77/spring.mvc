@@ -8,4 +8,5 @@
 	<import resource = "classpath:spring/context-restclient.xml" />
 	<import resource = "classpath:spring/context-jta.xml"/> 	
 	<import resource = "classpath:mybatis/mybatis-context.xml" />
+	
 </beans>

@@ -15,9 +15,15 @@
 	 -->
 	 
 	<!-- Package 단위의 type alias 지정  -->
-	<typeAliases>
-  		<package name="com.wemakeprice.vo" />
- 	</typeAliases>	 
+	  
+	 <typeAliases>
+	 	<typeAlias type="java.util.HashMap" 	alias="h_map" />
+	 	<typeAlias type="java.util.ArrayList" 	alias="a_list"/>
+	 	<package name="com.wemakeprice.vo"/>
+	 	<!-- 
+	 	<package name="com.wemakeprice.hierarchy.vo"/>
+	 	 -->
+	 </typeAliases> 
 	  
 	<!-- 
 	<mappers>

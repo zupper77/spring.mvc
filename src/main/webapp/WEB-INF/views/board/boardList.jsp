@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.wemakeprice.vo.board.BoardVO" %>
 <%@ page import="java.util.List" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%
 	String root = request.getContextPath();
 	List<BoardVO> boardList = (List<BoardVO>) request.getAttribute("boardList");

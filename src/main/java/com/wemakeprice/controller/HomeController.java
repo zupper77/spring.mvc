@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wemakeprice.vo.board.BoardVO;
 import com.wemakeprice.vo.info.Info;
 
+
 /**
  * Handles requests for the application home page.
  */
@@ -34,6 +35,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
 	
 	@ModelAttribute("searchTeamList")
 	public String[] getSearchTeamList(){
@@ -95,10 +97,12 @@ public class HomeController {
 	 
 	 
 	 @RequestMapping(value="/castorMarshaller", method = {RequestMethod.GET,RequestMethod.POST})
-	 public ModelAndView castorMarshaller_Example(HttpServletRequest request, HttpServletResponse response , Model model){
+	 public List<?> castorMarshaller_Example(HttpServletRequest request, HttpServletResponse response , Model model){
 	  System.out.println("----- castorMarshallerXmlView_Example -----");
 	  
 	  List<Info> list = new ArrayList<Info>();
+	  //ListVO dataList = new ListVO();
+	  
 	  
 	  Info vo1 = new Info();
 	  Info vo2 = new Info();
@@ -108,7 +112,7 @@ public class HomeController {
 	  vo1.setTitle("test1");
 	  vo1.setWriter("value1");
 	  
-	  vo1.setId(2);
+	  vo2.setId(2);
 	  vo2.setTitle("test2");
 	  vo2.setWriter("value2");
 	  
@@ -116,18 +120,21 @@ public class HomeController {
 	  vo3.setTitle("test3");
 	  vo3.setWriter("value3");
 	  
-	  
 	  list.add(vo1);
 	  list.add(vo2);
 	  list.add(vo3);
 	  
-	  Map<String,Object> map = new HashMap();
-	  map.put("*-info", list);
+	  
+	  
+	  //dataList.setVoList(list);
+	  //model.addAttribute("infoList", list);
+	  //Map<String,Object> map = new HashMap();
+	  //map.put("*-info", list);
 
 	  //new ModelAndView(viewName, modelName, modelObject)
 	  
-	  return new ModelAndView("", map);	  
-	  //return new ModelAndView(map);
+	  //return new ModelAndView("xmlViewer", map);	  
+	  return list;
 	 }
 	 
 	

@@ -10,6 +10,11 @@
 		</layout>
 	</appender>
 	
+	
+	<logger name="com.wemakeprice.controller">
+		<level value="debug" />
+	</logger>
+		
 	<!-- Application Loggers -->
 	<logger name="com.wemakeprice.common">
 		<level value="info" />
@@ -18,7 +23,7 @@
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
-	</logger>	
+	</logger>
 	
 	<logger name="org.springframework.beans">
 		<level value="info" />
@@ -31,6 +36,15 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+	<logger name="org.mybatis.spring">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.apache.ibatis">
+		<level value="info" />
+	</logger>
+	
 
 	<!-- Root Logger -->
 	<root>
