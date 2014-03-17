@@ -22,9 +22,7 @@
 		d.log("fancytree");
 		//treeutil.fancyTree_ajaxCall();
 		treeutil.fansyTreeInit();
-
-
-
+	
 		
 	});
 	
@@ -84,12 +82,13 @@
 					checkbox: false,
 					beforeSelect: function(event, data){
 					    // A node is about to be selected: prevent this, for folder-nodes:
-						alert(data);
+						//alert(data);
 					},
 					activate: function(event, data){
 					          // A node was activated: display its title:
 								//alert(data.node.isFolder());
-						var customData = data.node.data; //custom json key값 가져오는거 가능함
+						var customData = data.node.data;//custom json key값 가져오는거 가능함
+						//d.log(customData);
 						//alert(customData);
 						/*
 						var tree = $("#fancyTree").fancytree("getTree");
