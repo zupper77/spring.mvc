@@ -73,7 +73,7 @@ public class OrganizationController {
 		HashMap modelMap = new HashMap();
 		
 		//layzy모드를 했을 경우에만 넘어온다
-		System.out.println("key=========>"  + request.getParameter("key"));
+		//System.out.println("key=========>"  + request.getParameter("key"));
 		
 		List<OrganizationDTO> organizationTree = null;
 		try{

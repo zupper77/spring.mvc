@@ -19,11 +19,42 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		d.log("fancytree");
+		d.log("위메프 G.O.S");
 		//treeutil.fancyTree_ajaxCall();
 		treeutil.fansyTreeInit();
-	
-		
+
+		//전체 펼치기
+		$("#expendAll").click(function(e){
+
+		     $("#fancyTree").fancytree("getRootNode").visit(function(node){
+		         node.setExpanded(true);
+		       });
+				
+		});
+		//전체 접기
+		$("#collapseAll").click(function(e){
+			$("#fancyTree").fancytree("getRootNode").visit(function(node){
+			    node.setExpanded(false);
+			});
+		});
+
+		$("#orgDelete").click(function(e){
+			alert("삭제 개발중..");
+		});
+
+		$("#orgUpdate").click(function(e){
+			alert("수정 개발중..");
+		});
+
+		$("#orgInit").click(function(e){
+			alert("초기화 개발중..");
+		});
+
+		$("#orgAdd").click(function(e){
+			alert("하위조직추가 개발중..");
+		});
+				
+				
 	});
 	
 	/**
@@ -52,21 +83,47 @@
 			    }
 			}//,확장하면서 사용..
 	};
-	
+
 	 var treeutil = {
 
+				fansyInfo : {
+					orgTitle : [],
+					orgParenTitile : function(data){//상위 데이터 타이틀을 전부 얻어와야 한다
+						this.orgTitle.push(data.title);														
+						if(data.parent != null){
+							treeutil.fansyInfo.orgParenTitile(data.parent);//재귀호출 방식 이용 json 펑션		
+						}	
+					},
+					orgInfo : function(data){
+						//d.log(this.orgTitle);
+						var titleArr = this.orgTitle.reverse();
+						//d.log(this.orgTitle);
+						var title = "";
+						for(var i = 0;  i < titleArr.length; i++){	
+							if(titleArr[i] != "root" && titleArr[i] != undefined){						
+								if(i != (titleArr.length - 1)){
+									title += titleArr[i] + " > ";
+								}else{
+									title += titleArr[i];
+								}
+							}				
+						}
+						$("#orgInfoTitle").text(title);
+						$("#orgCode").text(data.node.key);
+						$("#orgName").text(data.node.title);
+							
+					}
+				},
+							
 				fansyTreeInit : function(){
 					var params = $("#form1").serializeArray();
 					$("#fancyTree").fancytree(this.fansyOptions);							
 										
 				},
-				
 					fansyOptions : {
-						
 						  source: {
-							    	url: "${pageContext.request.contextPath}/organization/organization_fansyTreeList.do"
+							    	url: "${pageContext.request.contextPath}/organization/organization_fansyTreeList.do?key=-1",
 								},
-					
 					//lazyLoad모드는 노드를 클릭했을경우 하위 데이터를 가져오는 경우이다
 				    lazyLoad: function(event, data) {
 					    //alert(data);
@@ -87,7 +144,7 @@
 					activate: function(event, data){
 					          // A node was activated: display its title:
 								//alert(data.node.isFolder());
-						var customData = data.node.data;//custom json key값 가져오는거 가능함
+						//var customData = data.node.data;//custom json key값 가져오는거 가능함
 						//d.log(customData);
 						//alert(customData);
 						/*
@@ -95,9 +152,15 @@
 						activeNode = tree.getActiveNode();
 						alert(activeNode);
 						*/
+				
+						//d.log(treeutil.fansyInfo.orginfo);
+						treeutil.fansyInfo.orgTitle = [];//배열 초기화
+						treeutil.fansyInfo.orgTitle.push(data.node.title);
+						
+						treeutil.fansyInfo.orgParenTitile(data.node.parent);
+						treeutil.fansyInfo.orgInfo(data);
+										
 					},
-
-
 					
 				    				      
 				}
@@ -114,23 +177,76 @@
 
 	<form name="form1" id="form1" method="post">
 		<input type="hidden" id="seq" name="seq" value="-1">
-		<table cellpadding="0" cellspacing="0" id="oTbl1" border="0" width="500px;" height="600px;">
-			<tr>
-				<td  width="200px;">
-					<div id="fancyTreeArea" class="" style="border:1px solid red; height: 600px; overflow-y:scroll;">
-						<div id="fancyTree" style="height:900px;"></div>
-					</div>
-				</td>
-				
-				<td width="300px;">
-					<div id="contentArea" class="" style="border:1px solid blue; height: 600px; overflow-y:scroll;">
-						<div id="content" style="height: 900px;"></div>
-					</div>
-				</td>
-				
-			</tr>		
-		</table>
-		
+		<div id="mainArea">
+			<table cellpadding="0" cellspacing="0" id="oTbl1" border="1" width="80%" height="100%">
+				<tr>
+					<td colspan="2">
+						<input type="button" id="expendAll" name="expendAll" value="전체펼치기" />&nbsp;
+						<input type="button" id="collapseAll" name="collapseAll" value="전체접기"  />
+					</td>
+				<tr>
+				<tr>
+					<td  width="25%">
+						<div id="fancyTreeArea" class=""  style="height: 600px; overflow-y:scroll;">
+							<div id="fancyTree" style="height:900px;"></div>
+						</div>
+					</td>
+					
+					<td width="75%">
+						<div id="contentArea" class="" style="height: 600px; overflow-y:scroll;" >
+							<div id="content" style="height: 900px;">
+								<table cellpadding="0" cellspacing="0" id="oTbl2" border="1" width="100%">
+								   <thead>
+										<tr>
+											<th width="20%">구분</th>
+											<th width="80%">내용</th>
+										</tr>
+									</thead>
+										
+									<tbody>
+										<tr>
+											<td>조직정보</td>
+											<td>
+												<label id="orgInfoTitle"></label>
+											</td>
+										</tr>
+										<tr>
+											<td>조직번호</td>
+											<td><label id="orgCode"></label></td>
+										</tr>
+										<tr>
+											<td>선택조직명</td>
+											<td><label id="orgName"></label></td>
+										</tr>
+										<tr>
+											<td>시작일</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>최초수정일</td>
+											<td></td>
+										</tr>	
+										
+										<tr>
+											<td>
+												<input type="button" id="orgDelete" name="orgDelete" value="삭제"  />&nbsp;
+												<input type="button" id="orgUpdate" name="orgUpdate" value="수정"  />&nbsp;
+												<input type="button" id="orgInit" name="orgInit" value="초기화"  />&nbsp;
+											</td>
+											<td align="right">
+												<input type="button" id="orgAdd" name="orgAdd" value="하위조직추가"  />
+											</td>
+										</tr>		
+									</tbody>
+									
+								</table>
+							</div>
+						</div>
+					</td>
+					
+				</tr>		
+			</table>
+		</div>
 		
 	</form>
 
