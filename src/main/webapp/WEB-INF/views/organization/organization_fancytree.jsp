@@ -17,6 +17,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/jquery-ui.custom.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/src/jquery.fancytree.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.js"></script>
+
+
+
 <script type="text/javascript">
 	$(document).ready(function(){
 		d.log("위메프 G.O.S");
@@ -54,7 +57,10 @@
 			alert("하위조직추가 개발중..");
 		});
 				
-				
+		$("#orgInfoPage").click(function(e){
+			document.location.href="${pageContext.request.contextPath}/organization/organization_JitView";
+		});
+					
 	});
 	
 	/**
@@ -183,6 +189,7 @@
 					<td colspan="2">
 						<input type="button" id="expendAll" name="expendAll" value="전체펼치기" />&nbsp;
 						<input type="button" id="collapseAll" name="collapseAll" value="전체접기"  />
+						<input type="button" id="orgInfoPage" name="orgInfoPage" value="전체조직도보기"  />
 					</td>
 				<tr>
 				<tr>

@@ -7873,7 +7873,7 @@ var Loader = {
 					     ans.addAdjacence(ans.nodes[node.parentId], ans.nodes[node.id]);
 					 }
 				 });
-		     } else { // ´ÜÀÏ ³ëµå Á÷Á¢ Ãß°¡
+		     } else { // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 			     ans.addNode(json);
 			     if (parent != undefined) {
 			         ans.addAdjacence(parent, ans.nodes[json.id]);
@@ -7882,7 +7882,7 @@ var Loader = {
 		 })(ans, json);
 		return ans;
 	},
-
+	
 	loadJSON: function(json, i) {
 	  this.json = json;
 	  //if they're canvas labels erase them.

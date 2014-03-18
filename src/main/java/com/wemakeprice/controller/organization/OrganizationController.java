@@ -94,7 +94,26 @@ public class OrganizationController {
 	
 	 
 	 
-	 
+		@RequestMapping(value = "/organization_JitView", method = RequestMethod.GET)
+		public String organizationJitView(Locale locale, Model model , HttpServletRequest request, HttpServletResponse response) {
+			return "organization/orgjitTree";
+		}
+		
+		
+		 @RequestMapping(value="/organization_jitTreeList", method = {RequestMethod.GET,RequestMethod.POST})
+		 public List<?> organization_jitTreeList(HttpServletRequest request, HttpServletResponse response , Model model){
+			long seq = -1;//parameter 로 받을수도 있고 처음루트는 0이므로 그냥 하드코딩
+			List<OrganizationDTO> organizationTree = null;
+			try{
+				organizationTree = this.organizationService.getOrganizationTreeList(seq);
+			}catch(Exception e){
+				log.error(e.getMessage());
+				e.printStackTrace();
+			}finally{}
+		  return organizationTree;
+		 }
+		
+		
 	 
 	
 	

@@ -56,7 +56,7 @@ function init() {
     st = new $jit.ST({
         //id of viz container element
         constrained: true,
-        levelsToShow: 1,
+        levelsToShow: 2,
         injectInto: divId,
         orientation: "top",
         align:"center",
@@ -77,7 +77,7 @@ function init() {
         Node: {
             height: 60,
             width: 90,
-            type: 'rectangle',
+            type: /*'rectangle , star'*/"rectangle",
             color: '#69a',
             overridable: true
         },
@@ -138,14 +138,14 @@ function init() {
 
 $(document).ready(function () {
     init();
-
+    
     // JSON loading
     $.getJSON(url, null, function (data) {
         $(data).each(function (index, node) {
-            node.id = node.organizationCode;
-            node.parentId = node.parentCode;
-            //node.id = node.seq;
-            //node.parentId = node.parentSeq;
+            //node.id = node.organizationCode;
+            //node.parentId = node.parentCode;
+            node.id = node.seq;//동적json추가
+            node.parentId = node.parentSeq;
             node.name = node.organizationName;
         });
 
@@ -171,7 +171,6 @@ $(document).ready(function () {
     // 노드(조직) 추가
     $('#addSubtree').click(function () {
         var subtree = { id: ++nodesCount, name: $('#txtOrg').val(), parentId: selectedId };
-
         var type = "animate";
         //add the subtree  
         st.addSubtree(subtree, type, {
@@ -181,7 +180,7 @@ $(document).ready(function () {
             }
         });
     });
-
+    
     // 선택된 노드 삭제
     $('#deleteSubtree').click(function () {
         if (confirm('선택된 노드를 삭제합니까?') == true) {
