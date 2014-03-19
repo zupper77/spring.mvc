@@ -13,22 +13,25 @@
 </style>
 <link href="${pageContext.request.contextPath}/resources/js/fancytree/src/skin-lion/ui.fancytree.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/resources/js/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/resources/js/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/jquery-ui.custom.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/src/jquery.fancytree.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/js/bootstrap.min.js"></script>
 
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		d.log("위메프 G.O.S");
+		//d.log("위메프 G.O.S");
 		//treeutil.fancyTree_ajaxCall();
 		treeutil.fansyTreeInit();
 
 		//전체 펼치기
 		$("#expendAll").click(function(e){
-
+			
 		     $("#fancyTree").fancytree("getRootNode").visit(function(node){
 		         node.setExpanded(true);
 		       });
@@ -179,83 +182,239 @@
 
 <title>조직관리</title>
 </head>
-<body leftmargin="0" topmargin="0">
+<body id="all_area">
 
-	<form name="form1" id="form1" method="post">
-		<input type="hidden" id="seq" name="seq" value="-1">
-		<div id="mainArea">
-			<table cellpadding="0" cellspacing="0" id="oTbl1" border="1" width="80%" height="100%">
-				<tr>
-					<td colspan="2">
-						<input type="button" id="expendAll" name="expendAll" value="전체펼치기" />&nbsp;
-						<input type="button" id="collapseAll" name="collapseAll" value="전체접기"  />
-						<input type="button" id="orgInfoPage" name="orgInfoPage" value="전체조직도보기"  />
-					</td>
-				<tr>
-				<tr>
-					<td  width="25%">
-						<div id="fancyTreeArea" class=""  style="height: 600px; overflow-y:scroll;">
-							<div id="fancyTree" style="height:900px;"></div>
-						</div>
-					</td>
-					
-					<td width="75%">
-						<div id="contentArea" class="" style="height: 600px; overflow-y:scroll;" >
-							<div id="content" style="height: 900px;">
-								<table cellpadding="0" cellspacing="0" id="oTbl2" border="1" width="100%">
-								   <thead>
-										<tr>
-											<th width="20%">구분</th>
-											<th width="80%">내용</th>
-										</tr>
-									</thead>
-										
-									<tbody>
-										<tr>
-											<td>조직정보</td>
-											<td>
-												<label id="orgInfoTitle"></label>
-											</td>
-										</tr>
-										<tr>
-											<td>조직번호</td>
-											<td><label id="orgCode"></label></td>
-										</tr>
-										<tr>
-											<td>선택조직명</td>
-											<td><label id="orgName"></label></td>
-										</tr>
-										<tr>
-											<td>시작일</td>
-											<td></td>
-										</tr>
-										<tr>
-											<td>최초수정일</td>
-											<td></td>
-										</tr>	
-										
-										<tr>
-											<td>
-												<input type="button" id="orgDelete" name="orgDelete" value="삭제"  />&nbsp;
-												<input type="button" id="orgUpdate" name="orgUpdate" value="수정"  />&nbsp;
-												<input type="button" id="orgInit" name="orgInit" value="초기화"  />&nbsp;
-											</td>
-											<td align="right">
-												<input type="button" id="orgAdd" name="orgAdd" value="하위조직추가"  />
-											</td>
-										</tr>		
-									</tbody>
-									
-								</table>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#" style="color:#429FA0">위메프 G.O.S</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link">유창근님 방갑습니다</a>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">조직관리</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">조직관리메뉴</li>
+              <li class="active"><a href="#">조직도</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li class="nav-header">Sidebar</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+        <!-- 
+          <div class="hero-unit">
+            <h1>Hello, world!</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+          </div>
+        -->
+        <!-- 
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div> 
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div> 
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div> 
+          </div>
+          <div class="row-fluid">
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div> 
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+              <h2>Heading</h2>
+              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+              <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+          </div>
+           -->
+          	 
+		<div class="row-fluid">
+		<div class="span12">
+		<form name="form1" id="form1" method="post">
+			<input type="hidden" id="seq" name="seq" value="-1">
+			<div id="mainArea">
+				<table cellpadding="0" cellspacing="0" id="oTbl1" border="1" width="100%" height="100%" class="table table-bordered">
+					<tr>
+						<td colspan="2">
+							
+							
+						  <div class="btn-group">
+			                <a class="btn btn-primary btn-small" id="expendAll" name="expendAll">
+			                	<i class="icon-arrow-down icon-white"/></i>전체펼치기
+			                </a>
+			              </div>
+			              
+			              <div class="btn-group">
+			                <a class="btn btn-success btn-small" id="collapseAll" name="collapseAll">
+			                	<i class="icon-arrow-up icon-white"/></i>전체접기
+			                </a>
+			              </div>
+			            	
+			              <div class="btn-group">
+			                <a class="btn btn-danger btn-small" id="orgInfoPage" name="orgInfoPage">
+			                	<i class="icon-user icon-white"/></i>전체조직도보기
+			                </a>
+			              </div>
+							
+						</td>
+					<tr>
+					<tr>
+						<td  width="25%">
+							<div id="fancyTreeArea" class=""  style="height: 600px; overflow-y:scroll;">
+								<div id="fancyTree" style="height:900px;"></div>
 							</div>
-						</div>
-					</td>
-					
-				</tr>		
-			</table>
+						</td>
+						
+						<td width="75%">
+							<div id="contentArea" class="" style="height: 600px; overflow-y:scroll;" >
+								<div id="content" style="height: 900px;">
+									<table cellpadding="0" cellspacing="0" id="oTbl2" border="1" width="100%" class="table table-bordered">
+									   <thead>
+											<tr>
+												<th width="20%">구분</th>
+												<th width="80%">내용</th>
+											</tr>
+										</thead>
+											
+										<tbody>
+											<tr>
+												<td>조직정보</td>
+												<td>
+													<label id="orgInfoTitle"></label>
+												</td>
+											</tr>
+											<tr>
+												<td>조직번호</td>
+												<td><label id="orgCode"></label></td>
+											</tr>
+											<tr>
+												<td>선택조직명</td>
+												<td><label id="orgName"></label></td>
+											</tr>
+											<tr>
+												<td>시작일</td>
+												<td></td>
+											</tr>
+											<tr>
+												<td>최초수정일</td>
+												<td></td>
+											</tr>	
+											
+											<tr>
+												<td>
+													
+													 <div class="btn-group">
+										                <a class="btn btn-danger btn-mini" id="orgDelete" name="orgDelete">
+										                	<i class="icon-remove icon-white"/></i>삭제
+										                </a>
+										              </div>
+										              
+										              <div class="btn-group">
+										                <a class="btn btn-warning btn-mini" id="orgUpdate" name="orgUpdate">
+										                	<i class="icon-edit icon-white"/></i>수정
+										                </a>
+										              </div>
+										              
+										             <div class="btn-group">
+										                <a class="btn btn-primary btn-mini" id="orgInit" name="orgInit">
+										                	<i class="icon-repeat icon-white"/></i>초기화
+										                </a>
+										              </div>
+										              
+													
+														
+												</td>
+												<td align="right">
+													 <div class="btn-group">
+										                <a class="btn btn-primary btn-mini" id="orgAdd" name="orgAdd">
+										                	<i class="icon-retweet icon-white"/></i>하위조직추가
+										                </a>
+										              </div>
+												
+													
+												</td>
+											</tr>		
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</td>
+						
+					</tr>		
+				</table>
+			</div>
+			
+		</form>
 		</div>
-		
-	</form>
+          	 	</div>
+          	 </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+            <div id="copyright" align="center">
+       
+      	<div class="row">
+		 	Copyright&copy; 2014 WemakePrice G.O.S
+
+      	</div>
+      </div>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
 
 </body>
 </html>

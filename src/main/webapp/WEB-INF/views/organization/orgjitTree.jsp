@@ -10,7 +10,6 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jit/Scripts/jit.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jit/Scripts/org.js"></script>
-
 <script type="text/javascript">		
 	url = "${pageContext.request.contextPath}/organization/organization_jitTreeList.json";		
 </script>

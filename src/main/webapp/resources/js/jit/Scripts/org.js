@@ -55,8 +55,8 @@ function init() {
     //Create a new ST instance
     st = new $jit.ST({
         //id of viz container element
-        constrained: true,
-        levelsToShow: 2,
+        constrained: true,  
+        levelsToShow: 1,
         injectInto: divId,
         orientation: "top",
         align:"center",
@@ -77,7 +77,7 @@ function init() {
         Node: {
             height: 60,
             width: 90,
-            type: /*'rectangle , star'*/"rectangle",
+            type: "rectangle",
             color: '#69a',
             overridable: true
         },
@@ -151,7 +151,7 @@ $(document).ready(function () {
 
         json = data;
         nodesCount = data.length;
-
+        
         //load json data
         st.loadJSON(json, 0);
         //compute node positions and layout
