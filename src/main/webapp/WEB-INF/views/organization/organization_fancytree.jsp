@@ -1,28 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-	 .debugClass{
- 			border: 1px solid #000000; 
- 			color:#00ff00; 
- 			background:#000000;  
-  	 }
-</style>
-<link href="${pageContext.request.contextPath}/resources/js/fancytree/src/skin-lion/ui.fancytree.css" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.css" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/js/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/js/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/jquery-ui.custom.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/src/jquery.fancytree.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fancytree/lib/prettify.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bootstrap/js/bootstrap.min.js"></script>
-
-
+<%@ include file="../include/ssi.jsp" %>
+	
 <script type="text/javascript">
 	$(document).ready(function(){
 		//d.log("위메프 G.O.S");
@@ -179,106 +157,10 @@
 </script>
 
 
-
-<title>조직관리</title>
-</head>
-<body id="all_area">
-
-
-	<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#" style="color:#429FA0">위메프 G.O.S</a>
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">유창근님 방갑습니다</a>
-            </p>
-            <ul class="nav">
-              <li class="active"><a href="#">조직관리</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span2">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">조직관리메뉴</li>
-              <li class="active"><a href="#">조직도</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span10">
-        <!-- 
-          <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>
-        -->
-        <!-- 
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div> 
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div> 
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div> 
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div> 
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-            <div class="span4">
-              <h2>Heading</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div>
-          </div>
-           -->
-          	 
-		<div class="row-fluid">
-		<div class="span12">
+		
+          
+<div class="row-fluid">
+<div class="span12">
 		<form name="form1" id="form1" method="post">
 			<input type="hidden" id="seq" name="seq" value="-1">
 			<div id="mainArea">
@@ -395,26 +277,6 @@
 			
 		</form>
 		</div>
-          	 	</div>
-          	 </div>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-            <div id="copyright" align="center">
-       
-      	<div class="row">
-		 	Copyright&copy; 2014 WemakePrice G.O.S
-
-      	</div>
-      </div>
-      </footer>
-
-    </div><!--/.fluid-container-->
+		</div>
 
 
-
-</body>
-</html>

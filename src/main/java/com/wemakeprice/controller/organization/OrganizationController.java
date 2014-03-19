@@ -53,7 +53,7 @@ public class OrganizationController {
 			e.printStackTrace();
 		}finally{}
 		
-		log.info("===result===>" + organizationTree.size());
+		//log.info("===result===>" + organizationTree.size());
 		
 	  return organizationTree;
 	 }

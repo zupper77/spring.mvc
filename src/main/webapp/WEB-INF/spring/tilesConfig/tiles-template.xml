@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+      <tiles-definitions>
+	      <definition name=".default" template="/WEB-INF/views/tilesLayOut/gosMain.jsp">
+			  <put-attribute name="include" value="/WEB-INF/views/tilesLayOut/gosScriptInclude.jsp" />
+			  <put-attribute name="header" value="/WEB-INF/views/tilesLayOut/gosHeader.jsp" />
+			  <put-attribute name="left" value="/WEB-INF/views/tilesLayOut/gosLeft.jsp" />
+			  <put-attribute name="body" value="/WEB-INF/views/tilesLayOut/gosBody.jsp" /><!-- 사용자가만든 페이지 삽입 -->
+			  <put-attribute name="footer" value="/WEB-INF/views/tilesLayOut/gosFooter.jsp" />
+		 </definition>
+	 </tiles-definitions>

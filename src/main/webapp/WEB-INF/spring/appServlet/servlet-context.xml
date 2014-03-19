@@ -6,6 +6,7 @@
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:task="http://www.springframework.org/schema/task"
     xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
@@ -15,7 +16,10 @@
         http://www.springframework.org/schema/aop 
         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         http://www.springframework.org/schema/task
-        http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        "
 >
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -54,12 +58,35 @@
     
     
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- 
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2" />
 	</beans:bean>
-	 
+	-->
+	
+	<!-- DynamicTiles2 View Resolver 위에있는 View 리절버는 DynamicTiles2랑 연동이 되지 않으므로 새로 정의 -->
+	<beans:bean  id="tilesViewResolver" class="org.springbyexample.web.servlet.view.tiles2.TilesUrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springbyexample.web.servlet.view.tiles2.DynamicTilesView"/>
+		<beans:property name="prefix" value="/WEB-INF/views/"/>
+        <beans:property name="suffix" value=".jsp"/>
+		<beans:property name="tilesDefinitionName" value="default"/><!-- tilesDefinitionName 은 기본 tiles의 Definition 이름이다.  -->
+		<beans:property name="tilesBodyAttributeName" value="body"/><!--  tilesBodyAttributeName 은 해당 바뀔 속성의 이름이다. 즉 view 영역의 개발자가 만든 화면 -->
+		<beans:property name="tilesDefinitionDelimiter" value="."/><!-- tilesDefinitionDelimiter 상속시 구분자이다.  -->
+	</beans:bean>
+	
+	<!-- Apache Tiles2 Configuration -->	
+	<!-- Spring3 + dynamicTile2 연동 -->
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/spring/tilesConfig/tiles-template.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
 	
     <!-- Resolver 0 -->	
     <beans:bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -112,8 +139,22 @@
         <beans:property name="ignoreAcceptHeader" value="true" />
     </beans:bean>	
     
-    
-
+    <!-- interceptor -->
+    <!-- 
+	<mvc:interceptors>
+		<beans:bean class="com.wemakeprice.commons.lib.interceptor.tiles.GosTilesInterceptor"></beans:bean>
+	</mvc:interceptors>
+	 -->
+		
+	<mvc:interceptors>
+		<mvc:interceptor><!-- (business) 업무영역 인터셉터 -->
+			<mvc:mapping path="/*/*/*/*.do"/>
+			<mvc:mapping path="/*/*/*.do"/>
+			<mvc:mapping path="/*/*.do"/>
+			<beans:bean class="com.wemakeprice.commons.lib.interceptor.tiles.GosTilesInterceptor"></beans:bean>
+		</mvc:interceptor>
+	</mvc:interceptors>	
+	
     
     <!-- proxy-target-class="true"
     	 @Aspect 가 선언되어있는 class를 찾아 Aspect로 등록시켜주는 후처리기를 설정한다 -->
