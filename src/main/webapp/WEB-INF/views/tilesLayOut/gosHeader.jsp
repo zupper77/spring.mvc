@@ -34,19 +34,19 @@ $(function(){
           
           	<!-- 탑다운 삽입 -->
             <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link">G.O.S어드민 님 방갑습니다</a>
+              Logged in as <a href="#" class="navbar-link">G.O.S어드민 님 반갑습니다</a>
             </p>
             
             <!-- 상단메뉴 -->
             <ul class="nav">
-              <li class="active"><a href="#">채용관리</a></li>
+              <li><a href="#">채용관리</a></li>
               <li><a href="#">인사평가</a></li>
               <li><a href="#">콘텐츠관리</a></li>
               <li><a href="#">영업관리</a></li>
               <li><a href="#">방문자등록</a></li>
               <li><a href="#">우편물관리</a></li>
               <li><a href="#">커뮤니티</a></li>
-              <li><a href="#">Admin</a></li>
+              <li class="active"><a href="#">Admin</a></li>
             </ul>  
           </div><!--/.nav-collapse -->
         </div>

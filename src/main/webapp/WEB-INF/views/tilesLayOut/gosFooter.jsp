@@ -4,7 +4,7 @@
       <footer>
        <div id="copyright" align="center">
 	      	<div class="row">
-			 	Copyright&copy; 2014 WemakePrice G.O.S
+			 	Copyright&copy; 2014 WemakePrice 
 	      	</div>
       </div>
       </footer>

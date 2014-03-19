@@ -10,4 +10,8 @@
 			  <put-attribute name="body" value="/WEB-INF/views/tilesLayOut/gosBody.jsp" /><!-- 사용자가만든 페이지 삽입 -->
 			  <put-attribute name="footer" value="/WEB-INF/views/tilesLayOut/gosFooter.jsp" />
 		 </definition>
+		 
+		 <!-- 전체조직도는 트위터 부트스트랩이랑 겹치면 안된다 일단 임시방편으로 이동 -->
+	     <definition name=".jit" template="/WEB-INF/views/organization/orgjitTree.jsp"></definition>
+		 
 	 </tiles-definitions>

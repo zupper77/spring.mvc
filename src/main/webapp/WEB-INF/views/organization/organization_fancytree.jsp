@@ -95,7 +95,8 @@
 								}
 							}				
 						}
-						$("#orgInfoTitle").text(title);
+						
+						$("#orgInfoTitle").html("<p class='text-info'>" + title + "</p>");
 						$("#orgCode").text(data.node.key);
 						$("#orgName").text(data.node.title);
 							
@@ -161,7 +162,7 @@
           
 <div class="row-fluid">
 <div class="span12">
-		<form name="form1" id="form1" method="post">
+		<form name="form1" id="form1" method="post" class="form-search">
 			<input type="hidden" id="seq" name="seq" value="-1">
 			<div id="mainArea">
 				<table cellpadding="0" cellspacing="0" id="oTbl1" border="1" width="100%" height="100%" class="table table-bordered">
@@ -201,9 +202,9 @@
 								<div id="content" style="height: 900px;">
 									<table cellpadding="0" cellspacing="0" id="oTbl2" border="1" width="100%" class="table table-bordered">
 									   <thead>
-											<tr>
-												<th width="20%">구분</th>
-												<th width="80%">내용</th>
+											<tr class="info">
+												<td width="20%">구분</td>
+												<td width="80%">내용</td>
 											</tr>
 										</thead>
 											

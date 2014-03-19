@@ -155,7 +155,7 @@
 		</mvc:interceptor>
 	</mvc:interceptors>	
 	
-    
+	
     <!-- proxy-target-class="true"
     	 @Aspect 가 선언되어있는 class를 찾아 Aspect로 등록시켜주는 후처리기를 설정한다 -->
     <aop:aspectj-autoproxy /> 

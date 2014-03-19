@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
 <link href="${pageContext.request.contextPath}/resources/js/jit/Stylesheets/base.css" rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/resources/js/jit/Stylesheets/Spacetree.css" rel="stylesheet" type="text/css" />
 

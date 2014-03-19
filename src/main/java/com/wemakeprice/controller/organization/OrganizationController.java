@@ -14,6 +14,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springbyexample.web.servlet.view.tiles2.TilesUrlBasedViewResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,6 +35,10 @@ public class OrganizationController {
 	
 	@Autowired
 	private OrganizationService organizationService;
+	
+	
+	@Autowired
+	private TilesUrlBasedViewResolver tilesViewResolver;
 	
 	@RequestMapping(value = "/organization_dTreeView", method = RequestMethod.GET)
 	public String organizationDtreeView(Locale locale, Model model , HttpServletRequest request, HttpServletResponse response) {
@@ -96,6 +101,7 @@ public class OrganizationController {
 	 
 		@RequestMapping(value = "/organization_JitView", method = RequestMethod.GET)
 		public String organizationJitView(Locale locale, Model model , HttpServletRequest request, HttpServletResponse response) {
+			this.tilesViewResolver.setTilesDefinitionName("jit");
 			return "organization/orgjitTree";
 		}
 		
